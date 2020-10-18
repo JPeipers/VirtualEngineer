@@ -1,0 +1,259 @@
+﻿<Window x:Class="Diplomdarbs_v0.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Diplomdarbs_v0"
+        mc:Ignorable="d"
+        Title="Virtual Engineer v0.49" Height="650" Width="1000" WindowState="Maximized">
+    <Grid>
+        <TabControl x:Name="tabControl_Vadiba" HorizontalAlignment="Left" Height="571" Margin="10,40,0,0" VerticalAlignment="Top" Width="973" SelectionChanged="tabControl_Vadiba_SelectionChanged">
+            <TabItem Header="General">
+                <Grid Background="#FFE5E5E5">
+                    <ComboBox x:Name="comboBox_comList" HorizontalAlignment="Left" Margin="37,31,0,0" VerticalAlignment="Top" Width="77" DropDownOpened="dropDownOpened" SelectedIndex="1"/>
+                    <Label x:Name="label_port" Content="Port" HorizontalAlignment="Left" Margin="0,25,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="button_connectCom" Content="Connect" HorizontalAlignment="Left" Margin="120,33,0,0" VerticalAlignment="Top" Width="68" Click="button_connectCom_Click"/>
+                    <TextBox x:Name="textBox_command" HorizontalAlignment="Left" Height="23" Margin="0,58,0,0" TextWrapping="Wrap" Text="Command" VerticalAlignment="Top" Width="114" GotFocus="textBox_command_GotFocus" KeyDown="enterCommand"/>
+                    <Button x:Name="button_send" Content="Send" HorizontalAlignment="Left" Margin="120,57,0,0" VerticalAlignment="Top" Width="68" Click="button_send_Click" IsEnabled="False"/>
+                    <Label x:Name="label_baudRate" Content="Baudrate" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBox_baudrate" HorizontalAlignment="Left" Margin="62,4,0,0" VerticalAlignment="Top" Width="126" SelectedIndex="7"/>
+                    <Label x:Name="label_debug" Content="" HorizontalAlignment="Left" Margin="238,0,0,0" VerticalAlignment="Top" Width="212"/>
+                    <TextBox x:Name="textBox_console" HorizontalAlignment="Left" Height="159" Margin="5,86,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="564" TextChanged="textBox_console_TextChanged" IsReadOnly="True"/>
+                    <CheckBox x:Name="checkBox_autoscroll" Content="Autoscroll" HorizontalAlignment="Left" Margin="193,61,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <Label x:Name="label_PositionText" Content="Position(RAW):" HorizontalAlignment="Left" Margin="270,55,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_PositionContent" Content="" HorizontalAlignment="Left" Margin="362,55,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_triggerPosition" Content="" HorizontalAlignment="Left" Margin="362,31,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="button_G36Procedure" Content="Do G36" HorizontalAlignment="Left" Margin="0,250,0,0" VerticalAlignment="Top" Width="75" Height="71" Click="button_G36Procedure_Click"/>
+                    <Button x:Name="button_G37" Content="G37" HorizontalAlignment="Left" Margin="0,326,0,0" VerticalAlignment="Top" Width="75" Click="button_G37_Click"/>
+                    <Button x:Name="button_G37_diveMeasure" Content="G37 DM Rout" HorizontalAlignment="Left" Margin="80,250,0,0" VerticalAlignment="Top" Width="75" Click="button_G37_diveMeasure_Click"/>
+                    <Button x:Name="button_cancelRoutine" Content="Cancel" HorizontalAlignment="Left" Margin="0,408,0,0" VerticalAlignment="Top" Width="75" Click="button_cancelRoutine_Click" Height="75"/>
+                    <Button x:Name="button_populateEEPROMList" Content="EEPROM" HorizontalAlignment="Left" Margin="494,292,0,0" VerticalAlignment="Top" Width="75" Click="button_populateEEPROMList_Click"/>
+                    <Button x:Name="button_Process" Content="Process" HorizontalAlignment="Left" Margin="494,267,0,0" VerticalAlignment="Top" Width="75" Click="button_Process_Click"/>
+                    <Button x:Name="button_readPosition" Content="readPosition" HorizontalAlignment="Left" Margin="414,267,0,0" VerticalAlignment="Top" Width="75" Click="button_readPosition_Click"/>
+                    <Button x:Name="button_autoLevel" Content="autolvlEnable" HorizontalAlignment="Left" Margin="414,291,0,0" VerticalAlignment="Top" Width="75" Click="button_autoLevel_Click"/>
+                    <Button x:Name="button_g37Probe" Content="G37 test (old)" HorizontalAlignment="Left" Margin="494,317,0,0" VerticalAlignment="Top" Width="75" Height="21" Click="button_g37Probe_Click"/>
+                    <Label x:Name="label_routinePosition" Content="RoutPos" HorizontalAlignment="Left" Margin="346,269,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_positionPosition" Content="posPos" HorizontalAlignment="Left" Margin="346,295,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position0" Content="Pos0" HorizontalAlignment="Left" Margin="489,457,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position1" Content="PosX" HorizontalAlignment="Left" Margin="489,364,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position2" Content="PosY" HorizontalAlignment="Left" Margin="489,395,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position3" Content="PosZ" HorizontalAlignment="Left" Margin="489,426,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position5" Content="Pos-X" HorizontalAlignment="Left" Margin="529,364,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position6" Content="Pos-Y" HorizontalAlignment="Left" Margin="529,395,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_position4" Content="Pos-Z" HorizontalAlignment="Left" Margin="529,426,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_Xtower" Content="X tower" HorizontalAlignment="Left" Margin="433,364,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_Ytower" Content="Y tower" HorizontalAlignment="Left" Margin="433,395,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_Ztower" Content="Z tower" HorizontalAlignment="Left" Margin="433,426,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_middle" Content="0,0" HorizontalAlignment="Left" Margin="433,457,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_debug" HorizontalAlignment="Left" Height="473" Margin="577,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="380" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
+                    <Label x:Name="label_commandLoopType_value" Content="proc#" HorizontalAlignment="Left" Margin="346,326,0,0" VerticalAlignment="Top" Width="47" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_EEPROM_ready_value" Content="ERdy" HorizontalAlignment="Left" Margin="346,352,0,0" VerticalAlignment="Top" Width="47" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Plane calibration">
+                <Grid Background="#FFE5E5E5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="317*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="button_planeCalibrationRoutine" Content="Calibrate!" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Grid.ColumnSpan="2" Click="button_planeCalibrationRoutine_Click_1"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Probe test" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="70">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="button_probeTest" Content="Measure" HorizontalAlignment="Left" Margin="10,100,0,0" VerticalAlignment="Top" Width="75" Click="button_probeTest_Click"/>
+                    <TextBox x:Name="textBox_probeMeasureCount" HorizontalAlignment="Left" Height="23" Margin="92,10,0,0" TextWrapping="Wrap" Text="10" VerticalAlignment="Top" Width="75"/>
+                    <TextBox x:Name="textBox_probeMeasurements" HorizontalAlignment="Left" Height="473" Margin="651,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="306" VerticalContentAlignment="Bottom" TextChanged="textBox_probeMeasurements_TextChanged" VerticalScrollBarVisibility="Visible"/>
+                    <Label x:Name="label_probeMeasureCount" Content="Data points" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="473" Margin="172,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="474"/>
+                    <Button x:Name="button_cancelProbeMeasure" Content="Cancel" HorizontalAlignment="Left" Margin="90,100,0,0" VerticalAlignment="Top" Width="75" Click="button_cancelRoutine_Click"/>
+                    <Button x:Name="button_drawTextBlockTest" Content="DrawTest" HorizontalAlignment="Left" Margin="10,463,0,0" VerticalAlignment="Top" Width="75" Click="button_drawTextBlockTest_Click"/>
+                    <Canvas x:Name="canvas_probeMeasure" HorizontalAlignment="Left" Height="473" Margin="172,10,0,0" VerticalAlignment="Top" Width="474"/>
+                    <Label x:Name="label_measureCounter" Content=""  HorizontalAlignment="Left" Margin="10,126,0,0" VerticalAlignment="Top" FontSize="40" Width="155" FontWeight="Bold" HorizontalContentAlignment="Center"/>
+                    <TextBox x:Name="textBox_probeXPosition" HorizontalAlignment="Left" Height="23" Margin="10,41,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <TextBox x:Name="textBox_probeYPosition" HorizontalAlignment="Left" Height="23" Margin="90,41,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_probeXPosition" Content="X Position" HorizontalAlignment="Left" Margin="10,69,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_probeYPosition" Content="Y position" HorizontalAlignment="Left" Margin="90,69,0,0" VerticalAlignment="Top" Width="75" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Grid measure (simple)" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="140">
+                <Grid Background="#FFE5E5E5">
+                    <TextBox x:Name="textBox_printingDiameter" HorizontalAlignment="Left" Height="23" Margin="142,10,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="81"/>
+                    <Label x:Name="label_printerDiameter" Content="Printer diameter (mm)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_probeOffset" Content="Probe offset (X;Y) (mm)" HorizontalAlignment="Left" Margin="10,36,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_probeOffsetX" HorizontalAlignment="Left" Height="23" Margin="142,38,0,0" TextWrapping="Wrap" Text="-23" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="textBox_probeOffsetY" HorizontalAlignment="Left" Height="23" Margin="188,38,0,0" TextWrapping="Wrap" Text="-13" VerticalAlignment="Top" Width="35"/>
+                    <Label x:Name="label_gridSize" Content="Grid size (mm)" HorizontalAlignment="Left" Margin="10,67,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_gridSize" HorizontalAlignment="Left" Height="23" Margin="142,67,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="81"/>
+                    <Button x:Name="button_calculateParameters" Content="Calculate!" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" Width="87" Click="button_calculateArea_Click"/>
+                    <Label x:Name="label_probeReach" Content="Probe reach:" HorizontalAlignment="Left" Margin="10,123,0,0" VerticalAlignment="Top" Width="116"/>
+                    <Label x:Name="label_probeReach_value" Content="" HorizontalAlignment="Left" Margin="131,123,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_maxDiscreteDiameter" Content="Max discrete diam:" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_maxDiscreteDiameter_value" Content="" HorizontalAlignment="Left" Margin="131,156,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_coveredArea" Content="Covered area %:" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_coveredArea_value" Content="" HorizontalAlignment="Left" Margin="131,187,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_gridMeasurePointCount" Content="Measure points:" HorizontalAlignment="Left" Margin="10,214,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_gridMeasurePointCount_value" Content="" HorizontalAlignment="Left" Margin="125,214,0,0" VerticalAlignment="Top" Width="52"/>
+                    <TextBox x:Name="textBox_debugGridPointList" HorizontalAlignment="Left" Height="473" Margin="742,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" VerticalScrollBarVisibility="Visible"/>
+                    <Button x:Name="button_gridTestSimple" Content="Measure grid" HorizontalAlignment="Left" Margin="10,245,0,0" VerticalAlignment="Top" Width="87" Click="button_gridTestSimple_Click" IsEnabled="False"/>
+                    <Button x:Name="button_cancelGridMeasureSimple" Content="Cancel" HorizontalAlignment="Left" Margin="10,270,0,0" VerticalAlignment="Top" Width="87" Click="button_cancelRoutine_Click"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="500"/>
+                    <Canvas x:Name="canvas_gridMeasureSimple" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Label x:Name="label_z_probeHeight_value" Content="" HorizontalAlignment="Left" Margin="742,488,0,0" VerticalAlignment="Top" Width="215" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="checkBox_measureAfterHomeSimple" Content="Homing" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="87"/>
+                    <CheckBox x:Name="checkBox_measureLabelsSimple" Content="Labels" HorizontalAlignment="Left" Margin="10,316,0,0" VerticalAlignment="Top" Width="87"/>
+                    <CheckBox x:Name="checkBox_offsetXYCorrectionSimple" Content="XY offs." HorizontalAlignment="Left" Margin="10,336,0,0" VerticalAlignment="Top" Width="87"/>
+                    <TextBox x:Name="textBox_multiplierColorScaleSimple" HorizontalAlignment="Left" Height="23" Margin="142,95,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="81"/>
+                    <Label x:Name="label_multiplierColorScaleSimple" Content="Scale" HorizontalAlignment="Left" Margin="105,92,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Grid measure (random)" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="140">
+                <Grid Background="#FFE5E5E5" Margin="0,0,-0.333,-0.333">
+                    <TextBox x:Name="textBox_printingDiameterRandom" HorizontalAlignment="Left" Height="23" Margin="148,13,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="label_printerDiameter_random" Content="Printer diameter (mm)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_probeOffsetRandom" Content="Probe offset (X;Y) (mm)" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_gridSize_Random" Content="Grid size (mm)" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_probeOffsetX_Random" HorizontalAlignment="Left" Height="23" Margin="148,44,0,0" TextWrapping="Wrap" Text="-23" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="textBox_probeOffsetY_Random" HorizontalAlignment="Left" Height="23" Margin="188,44,0,0" TextWrapping="Wrap" Text="-13" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="textBox_gridSize_Random" HorizontalAlignment="Left" Height="23" Margin="148,72,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="label_grideMeasureRandomPointCount" Content="Random measure points:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_randomPointCount" HorizontalAlignment="Left" Height="23" Margin="148,103,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="button_calculateParametersRandomGrid" Content="Calculate!" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top" Width="75" Click="button_calculateParametersRandomGrid_Click"/>
+                    <Button x:Name="button_gridTestRandom" Content="Measure grid" HorizontalAlignment="Left" Margin="10,305,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="button_gridTestRandom_Click"/>
+                    <Label x:Name="label_probeReachRandom" Content="Probe reach:" HorizontalAlignment="Left" Margin="10,159,0,0" VerticalAlignment="Top" Width="116"/>
+                    <Label x:Name="label_probeReachRandom_value" Content="" HorizontalAlignment="Left" Margin="137,160,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_maxDiscreteDiameterRandom" Content="Max discrete diam:" HorizontalAlignment="Left" Margin="10,186,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_maxDiscreteDiameterRandom_value" Content="" HorizontalAlignment="Left" Margin="137,186,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_coveredAreaRandom" Content="Covered area %:" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_coveredAreaRandom_value" Content="" HorizontalAlignment="Left" Margin="137,217,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_gridMeasurePointCountRandom" Content="Measure points:" HorizontalAlignment="Left" Margin="10,247,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_gridMeasurePointCountRandom_value" Content="" HorizontalAlignment="Left" Margin="137,247,0,0" VerticalAlignment="Top" Width="92"/>
+                    <TextBox x:Name="textBox_debugGridPointList_Random" HorizontalAlignment="Left" Height="473" Margin="742,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" VerticalScrollBarVisibility="Visible"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="500"/>
+                    <Canvas x:Name="canvas_gridMeasureRandom" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Label x:Name="label_gridSquaresRandom" Content="Grid square count:" HorizontalAlignment="Left" Margin="10,273,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_gridSquaresRandom_value" Content="" HorizontalAlignment="Left" Margin="137,273,0,0" VerticalAlignment="Top" Width="85"/>
+                    <CheckBox x:Name="checkBox_measureAfterHomingRandom" Content="Homing" HorizontalAlignment="Left" Margin="13,359,0,0" VerticalAlignment="Top" Width="72"/>
+                    <CheckBox x:Name="checkBox_measureLabelsRandom" Content="Labels" HorizontalAlignment="Left" Margin="13,379,0,0" VerticalAlignment="Top" Width="87"/>
+                    <CheckBox x:Name="checkBox_offsetXYCorrectionRandom" Content="XY offs." HorizontalAlignment="Left" Margin="13,399,0,0" VerticalAlignment="Top" Width="87"/>
+                    <TextBox x:Name="textBox_multiplierColorScaleRandom" HorizontalAlignment="Left" Height="23" Margin="148,135,0,0" TextWrapping="Wrap" Text="8" VerticalAlignment="Top" Width="74"/>
+                    <Label x:Name="label_multiplierColorScaleRandom" Content="Scale" HorizontalAlignment="Left" Margin="106,132,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="button_cancelGridMeasureRandom" Content="Cancel" HorizontalAlignment="Left" Margin="10,330,0,0" VerticalAlignment="Top" Width="75" Click="button_cancelRoutine_Click"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Universal Grid measure" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="150">
+                <Grid x:Name="grid_universalGridMeasure" Background="#FFE5E5E5" Margin="0,0,-0.333,-0.333">
+                    <TextBox x:Name="textBox_printingDiameter_Universal" HorizontalAlignment="Left" Height="23" Margin="148,13,0,0" TextWrapping="Wrap" Text="200" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="label_printerDiameter_Universal" Content="Printer diameter (mm)" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_probeOffset_Universal" Content="Probe offset (X;Y) (mm)" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_gridSize_Universal" Content="Grid size (mm)" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_probeOffsetX_Universal" HorizontalAlignment="Left" Height="23" Margin="148,44,0,0" TextWrapping="Wrap" Text="-23" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="textBox_probeOffsetY_Universal" HorizontalAlignment="Left" Height="23" Margin="188,44,0,0" TextWrapping="Wrap" Text="-13" VerticalAlignment="Top" Width="35"/>
+                    <TextBox x:Name="textBox_gridSize_Universal" HorizontalAlignment="Left" Height="23" Margin="148,72,0,0" TextWrapping="Wrap" Text="20" VerticalAlignment="Top" Width="75"/>
+                    <Label x:Name="label_grideMeasureRandomPointCount_Universal" Content="Random measure points:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_randomPointCount_Universal" HorizontalAlignment="Left" Height="23" Margin="148,103,0,0" TextWrapping="Wrap" Text="3" VerticalAlignment="Top" Width="75"/>
+                    <Button x:Name="button_calculateParametersGrid_Universal" Content="Calculate!" HorizontalAlignment="Left" Margin="10,227,0,0" VerticalAlignment="Top" Width="75" Click="button_calculateParametersGrid_Universal_Click"/>
+                    <Button x:Name="button_gridTest_Universal" Content="Measure grid" HorizontalAlignment="Left" Margin="10,422,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="button_gridTest_Universal_Click"/>
+                    <Label x:Name="label_probeReach_Universal" Content="Probe reach:" HorizontalAlignment="Left" Margin="10,276,0,0" VerticalAlignment="Top" Width="116"/>
+                    <Label x:Name="label_probeReach_Universal_value" Content="" HorizontalAlignment="Left" Margin="137,277,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_maxDiscreteDiameter_Universal" Content="Max discrete diam:" HorizontalAlignment="Left" Margin="10,303,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_maxDiscreteDiameter_Universal_value" Content="" HorizontalAlignment="Left" Margin="137,303,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_coveredArea_Universal" Content="Covered area %:" HorizontalAlignment="Left" Margin="10,334,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_coveredArea_Universal_value" Content="" HorizontalAlignment="Left" Margin="137,334,0,0" VerticalAlignment="Top" Width="92"/>
+                    <Label x:Name="label_gridMeasurePointCount_Universal" Content="Measure points:" HorizontalAlignment="Left" Margin="10,364,0,0" VerticalAlignment="Top" Width="115"/>
+                    <Label x:Name="label_gridMeasurePointCount_Universal_value" Content="" HorizontalAlignment="Left" Margin="137,364,0,0" VerticalAlignment="Top" Width="92"/>
+                    <TextBox x:Name="textBox_debugGridPointList_Universal" HorizontalAlignment="Left" Height="473" Margin="742,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="215" VerticalScrollBarVisibility="Visible"/>
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" Stroke="Black" VerticalAlignment="Top" Width="500"/>
+                    <Canvas x:Name="canvas_gridMeasure_Universal" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Label x:Name="label_gridSquares_Universal" Content="Grid square count:" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top"/>
+                    <Label x:Name="label_gridSquares_Universal_value" Content="" HorizontalAlignment="Left" Margin="137,390,0,0" VerticalAlignment="Top" Width="85"/>
+                    <CheckBox x:Name="checkBox_measureAfterHoming_Universal" Content="Homing" HorizontalAlignment="Left" Margin="13,476,0,0" VerticalAlignment="Top" Width="72"/>
+                    <CheckBox x:Name="checkBox_measureLabels_Universal" Content="Labels" HorizontalAlignment="Left" Margin="13,496,0,0" VerticalAlignment="Top" Width="87"/>
+                    <CheckBox x:Name="checkBox_offsetXYCorrection_Universal" Content="XY offs." HorizontalAlignment="Left" Margin="13,516,0,0" VerticalAlignment="Top" Width="87"/>
+                    <TextBox x:Name="textBox_multiplierColorScale_Universal" HorizontalAlignment="Left" Height="23" Margin="149,135,0,0" TextWrapping="Wrap" Text="9" VerticalAlignment="Top" Width="74"/>
+                    <Label x:Name="label_multiplierColorScale_Universal" Content="Scale:" HorizontalAlignment="Left" Margin="10,135,0,0" VerticalAlignment="Top"/>
+                    <Button x:Name="button_cancelGridMeasure_Universal" Content="Cancel" HorizontalAlignment="Left" Margin="10,447,0,0" VerticalAlignment="Top" Width="75" Click="button_cancelRoutine_Click"/>
+                    <CheckBox x:Name="checkBox_randomMode" Content="Random measure" HorizontalAlignment="Left" Margin="10,167,0,0" VerticalAlignment="Top"/>
+                    <StackPanel Margin="138,207,744,306" Orientation="Vertical">
+                        <RadioButton x:Name="radioButton_L" Content="Left-Right →" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="radioButton_R" Content="Right-Left ←" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+
+                    </StackPanel>
+                    <StackPanel Margin="138,242,744,271" Orientation="Vertical">
+                        <RadioButton x:Name="radioButton_F" Content="Front-Back ↑" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                        <RadioButton x:Name="radioButton_B" Content="Back-Front ↓" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+                    </StackPanel>
+                    <CheckBox x:Name="checkBox_randomType" Content="Random sequence" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="checkBox_snakeMode" Content="Snake mode" HorizontalAlignment="Left" Margin="10,207,0,0" VerticalAlignment="Top"/>
+                    <StackPanel Margin="138,167,744,342" Orientation="Vertical">
+                        <RadioButton x:Name="radioButton_X" Content="X scan ↔" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True"/>
+                        <RadioButton x:Name="radioButton_Y" Content="Y scan ↕" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+
+                    </StackPanel>
+                    <Button x:Name="button_showGcodeUniversal" Content="Show Gcode" HorizontalAlignment="Left" Margin="10,251,0,0" VerticalAlignment="Top" Width="75" Click="button_showGcodeUniversal_Click"/>
+                    <Canvas x:Name="canvas_gridMeasureScale_Universal" HorizontalAlignment="Left" Height="28" Margin="228,515,0,0" VerticalAlignment="Top" Width="500"/>
+                    <TextBox x:Name="textBox_fileName_universal" HorizontalAlignment="Left" Height="23" Margin="102,444,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="filename"/>
+                    <Label x:Name="label_fileName" Content="Filename:" HorizontalAlignment="Left" Margin="105,412,0,0" VerticalAlignment="Top" Width="64"/>
+                    <Button x:Name="button_exportToFile" Content="Export" HorizontalAlignment="Left" Margin="102,472,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False" Click="button_exportToFile_Click"/>
+                    <Button x:Name="button_saveMap" Content="Save map" HorizontalAlignment="Left" Margin="102,497,0,0" VerticalAlignment="Top" Width="75" Click="button_saveMap_Click"/>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Gcode processing" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="110">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="button_openFile" Content="Open Grid" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_openFile_Click"/>
+                    <TextBox x:Name="textBox_openFile" HorizontalAlignment="Left" Height="23" Margin="90,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="867"/>
+                    <Button x:Name="button_openRawGcode" Content="Open Gcode" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="75" Click="button_openRawGcode_Click"/>
+                    <TextBox x:Name="textBox_openGcode" HorizontalAlignment="Left" Height="23" Margin="90,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="867"/>
+                    <Button x:Name="button_gcodeCrawler" Content="Gcode crwlr" HorizontalAlignment="Left" Margin="172,91,0,0" VerticalAlignment="Top" Width="75" Click="button_gcodeCrawler_Click"/>
+                    <StackPanel Margin="10,70,800,340" Orientation="Vertical">
+                        <RadioButton x:Name="radioButton_processMode_0" Content="Discrete step mode" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,0,-11.667,0" Width="150"/>
+                        <RadioButton x:Name="radioButton_processMode_1" Content="Mid-to-Mid mode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="150"/>
+                        <RadioButton x:Name="radioButton_processMode_2" Content="Half-step mode" IsChecked="True" HorizontalAlignment="Right" VerticalAlignment="Top" Width="150" Margin="0,0,6.667,0"/>
+
+                    </StackPanel>
+                    <StackPanel Margin="10,130,800,340" Orientation="Vertical">
+                        <RadioButton x:Name="radioButton_Z_correction_discrete" Content="Discrete Z correction" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="0,0,-11.667,0" Width="150"/>
+                        <RadioButton x:Name="radioButton_Z_correction_continuous" Content="Continuous Z correction" HorizontalAlignment="Left" VerticalAlignment="Top" IsChecked="True" Width="150"/>
+
+                    </StackPanel>
+                    <Button x:Name="button_showArray" Content="Show arr." HorizontalAlignment="Left" Margin="172,66,0,0" VerticalAlignment="Top" Width="75" Click="button_showArray_Click"/>
+                    <TextBox x:Name="textBox_array" AcceptsTab="True" HorizontalAlignment="Left" Height="250" Margin="707,66,0,0" VerticalAlignment="Top" Width="250" IsReadOnly="True" HorizontalScrollBarVisibility="Visible"/>
+                    <Label x:Name="label_gcodeProgress" Content="Progress" HorizontalAlignment="Left" Margin="252,66,0,0" VerticalAlignment="Top" Height="45" Width="111" FontSize="26" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <CheckBox x:Name="checkBox_diminishingZ" Content="Diminishing Z correction" HorizontalAlignment="Left" Margin="10,203,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_diminishingZ" HorizontalAlignment="Left" Height="27" Margin="105,223,0,0" TextWrapping="Wrap" Text="0.1" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_diminishingZ" Content="Rate, mm/layer" HorizontalAlignment="Left" Margin="10,223,0,0" VerticalAlignment="Top" Width="90"/>
+                    <CheckBox x:Name="checkBox_defaultFilename" Content="Default filename" HorizontalAlignment="Left" Margin="175,118,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <TextBox x:Name="textBox_Zoffset" HorizontalAlignment="Left" Height="23" Margin="105,255,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="55" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_Zoffset" Content="Z offset, mm" HorizontalAlignment="Left" Margin="10,253,0,0" VerticalAlignment="Top" Width="90"/>
+                    <CheckBox x:Name="checkBox_tsv" Content="TSV" HorizontalAlignment="Left" Margin="175,138,0,0" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Tools" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="54">
+                <Grid Background="#FFE5E5E5">
+                    <Button x:Name="button_gcodeFragment" Content="Convert gcode fragment" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="133" Click="button_gcodeFragment_Click"/>
+                    <TextBox x:Name="textBox_gcodeFragment" HorizontalAlignment="Left" Height="20" Margin="148,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="809"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Heatmap Generator" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="60" Margin="0.333,0,-0.333,0">
+                <Grid x:Name="grid_heatmap" Background="#FFE5E5E5">
+                    <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" VerticalAlignment="Top" Width="500" Stroke="Black"/>
+                    <Canvas x:Name="canvas_heatmap" HorizontalAlignment="Left" Height="500" Margin="228,10,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Canvas x:Name="canvas_heatmapScale" HorizontalAlignment="Left" Height="28" Margin="228,515,0,0" VerticalAlignment="Top" Width="500"/>
+                    <Button x:Name="button_generateHeatmap" Content="Generate" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" Width="75" Click="button_generateHeatmap_Click"/>
+                    <Button x:Name="button_selectHeatmap" Content="Select Map" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="button_openFile_Click"/>
+                    <Button x:Name="button_fineMap" Content="Refine" HorizontalAlignment="Left" Margin="10,91,0,0" VerticalAlignment="Top" Width="75" Click="button_fineMap_Click"/>
+                    <TextBox x:Name="textBox_subGrid" HorizontalAlignment="Left" Height="23" Margin="85,59,0,0" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" Width="40" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                    <Label x:Name="label_subGrid" Content="Refine factor" HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top"/>
+                    <CheckBox x:Name="checkBox_measureLabels_HeatMap" Content="Labels" HorizontalAlignment="Left" Margin="90,13,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                    <CheckBox x:Name="checkBox_clipEdges" Content="Clip edges" HorizontalAlignment="Left" Margin="90,35,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="textBox_clipEdgesScale" HorizontalAlignment="Left" Height="23" Margin="170,27,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="53"/>
+
+
+                </Grid>
+
+            </TabItem>
+        </TabControl>
+
+    </Grid>
+</Window>
